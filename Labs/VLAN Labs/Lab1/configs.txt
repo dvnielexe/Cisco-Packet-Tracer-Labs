@@ -1,0 +1,163 @@
+# ⚙️ Full Configuration — VLAN Segmentation Lab
+
+---
+
+## 🔧 SWITCH CONFIGURATION
+
+```
+enable
+configure terminal
+
+vlan 10
+name HR
+
+vlan 20
+name FINANCE
+
+vlan 30
+name IT
+```
+
+### Assign Ports
+
+```
+interface range fa0/1-2
+switchport mode access
+switchport access vlan 10
+
+interface range fa0/3-4
+switchport mode access
+switchport access vlan 20
+
+interface range fa0/5-6
+switchport mode access
+switchport access vlan 30
+```
+
+### Configure Trunk
+
+```
+interface fa0/24
+switchport mode trunk
+```
+
+---
+
+## 🌐 ROUTER CONFIGURATION
+
+```
+enable
+configure terminal
+
+interface g0/0
+no shutdown
+```
+
+### Subinterfaces
+
+```
+interface g0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+
+interface g0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+
+interface g0/0.30
+encapsulation dot1Q 30
+ip address 192.168.30.1 255.255.255.0
+```
+
+---
+
+## 🖥️ PC CONFIGURATION
+
+### HR PCs
+
+```
+IP Address: 192.168.10.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.10.1
+```
+
+```
+IP Address: 192.168.10.11
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.10.1
+```
+
+---
+
+### Finance PCs
+
+```
+IP Address: 192.168.20.10
+Gateway: 192.168.20.1
+```
+
+```
+IP Address: 192.168.20.11
+Gateway: 192.168.20.1
+```
+
+---
+
+### IT PCs
+
+```
+IP Address: 192.168.30.10
+Gateway: 192.168.30.1
+```
+
+```
+IP Address: 192.168.30.11
+Gateway: 192.168.30.1
+```
+
+---
+
+## 🧪 TESTING
+
+### Same VLAN Test
+
+```
+ping 192.168.10.11
+```
+
+Expected: ✅ Success
+
+---
+
+### Inter-VLAN Test
+
+```
+ping 192.168.20.10
+```
+
+Expected: ✅ Success via router
+
+---
+
+## 🔍 VERIFICATION COMMANDS
+
+### Switch
+
+```
+show vlan brief
+show interfaces trunk
+```
+
+### Router
+
+```
+show ip interface brief
+```
+
+---
+
+## 🏁 RESULT
+
+* VLAN segmentation successfully implemented
+* Inter-VLAN routing working
+* Network properly isolated and secured
