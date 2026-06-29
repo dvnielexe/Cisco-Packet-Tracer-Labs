@@ -1,0 +1,95 @@
+# ⚙️ DEVICE CONFIGURATIONS
+
+---
+
+## 🌐 Wireless Router Configuration (GUI)
+
+### Internet (WAN) Setup
+
+* IP Address: 203.0.113.2
+* Subnet Mask: 255.255.255.252
+* Default Gateway: 203.0.113.1
+* DNS Server: 8.8.8.8
+
+---
+
+### LAN Setup
+
+* Router IP: 192.168.1.1
+* Subnet Mask: 255.255.255.0
+
+---
+
+### DHCP Settings
+
+* DHCP Server: Enabled
+* Start IP: 192.168.1.10
+* Maximum Users: 41
+
+---
+
+### Wireless Settings
+
+* SSID: HomeWiFi
+* Security Mode: WPA2-PSK
+* Password: home12345
+
+---
+
+## 🖥️ PC1 Configuration
+
+Desktop → IP Configuration:
+
+* Mode: DHCP
+
+---
+
+## 🖥️ PC2 Configuration
+
+Desktop → IP Configuration:
+
+* Mode: DHCP
+
+---
+
+## 💻 Laptop Configuration
+
+Desktop → PC Wireless:
+
+* Connect to SSID: HomeWiFi
+* Password: home12345
+
+Desktop → IP Configuration:
+
+* Mode: DHCP
+
+---
+
+## 📱 Smartphone Configuration
+
+Config → Wireless:
+
+* SSID: HomeWiFi
+* Authentication: WPA2-PSK
+* Password: home12345
+* Wireless: ON
+
+Config → IP Configuration:
+
+* Mode: DHCP
+
+---
+
+## 🔌 Switch Configuration
+
+* No configuration required (Layer 2 unmanaged)
+
+---
+
+## 🧪 Testing Commands (PC)
+
+Command Prompt:
+ping 192.168.1.1
+ping 192.168.1.x
+
+---
